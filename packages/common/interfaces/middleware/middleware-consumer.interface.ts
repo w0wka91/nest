@@ -8,5 +8,5 @@ export interface MiddlewareConsumer {
    * @param  {any|any[]} middleware
    * @returns {MiddlewareConfigProxy}
    */
-  apply(middleware: any | any[]): MiddlewareConfigProxy;
+  apply(...middleware: any[]): MiddlewareConfigProxy;
 }
