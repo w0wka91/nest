@@ -1,43 +1,21 @@
-import {
-  Module,
-  MiddlewareConsumer,
-  NestModule,
-  RequestMethod,
-} from '@nestjs/common';
-import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
-import { GraphQLModule, GraphQLFactory } from '@nestjs/graphql';
-
+import { Module } from '@nestjs/common';
+import { GraphQLModule } from '@nestjs/graphql';
+import graphqlPlayground from 'graphql-playground-middleware-express';
 import { CatsModule } from './cats/cats.module';
 import { SubscriptionsModule } from './subscriptions/subscriptions.module';
-import { SubscriptionsService } from './subscriptions/subscriptions.service';
 
 @Module({
-  imports: [SubscriptionsModule.forRoot(), CatsModule, GraphQLModule],
+  imports: [SubscriptionsModule.forRoot(), CatsModule, GraphQLModule.forRoot()],
 })
-export class ApplicationModule implements NestModule {
-  constructor(
-    private readonly subscriptionsService: SubscriptionsService,
-    private readonly graphQLFactory: GraphQLFactory,
-  ) {}
-
-  configure(consumer: MiddlewareConsumer) {
-    const schema = this.createSchema();
-    this.subscriptionsService.createSubscriptionServer(schema);
-
+export class ApplicationModule {
+  configure(consumer) {
     consumer
       .apply(
-        graphiqlExpress({
-          endpointURL: '/graphql',
-          subscriptionsEndpoint: `ws://localhost:3001/subscriptions`,
+        graphqlPlayground({
+          endpoint: '/graphql',
         }),
+        () => {},
       )
-      .forRoutes('/graphiql')
-      .apply(graphqlExpress(req => ({ schema, rootValue: req })))
-      .forRoutes('/graphql');
-  }
-
-  createSchema() {
-    const typeDefs = this.graphQLFactory.mergeTypesByPaths('./**/*.graphql');
-    return this.graphQLFactory.createSchema({ typeDefs });
+      .forRoutes('/graphiql');
   }
 }

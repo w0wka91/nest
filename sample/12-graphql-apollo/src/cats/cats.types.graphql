@@ -1,3 +1,5 @@
+scalar Date
+
 type Query {
   getCats: [Cat]
   cat(id: ID!): Cat
@@ -17,4 +19,5 @@ type Cat {
   name: String
   age: Int
   humanId: Int
+  createdAt: Date
 }
