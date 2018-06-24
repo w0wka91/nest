@@ -1,25 +1,24 @@
-import {
-  Module,
-  MiddlewareConsumer,
-  NestModule,
-  RequestMethod,
-} from '@nestjs/common';
-import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
-import { GraphQLModule, GraphQLFactory } from '@nestjs/graphql';
-
+import { Module } from '@nestjs/common';
+import { GraphQLFactory, GraphQLModule } from '@nestjs/graphql';
 import { CatsModule } from './cats/cats.module';
 import { SubscriptionsModule } from './subscriptions/subscriptions.module';
 import { SubscriptionsService } from './subscriptions/subscriptions.service';
 
 @Module({
-  imports: [SubscriptionsModule.forRoot(), CatsModule, GraphQLModule],
+  imports: [
+    SubscriptionsModule.forRoot(),
+    CatsModule,
+    GraphQLModule.forRoot({
+      typePaths: ['./**/*.graphql'],
+    } as any),
+  ],
 })
-export class ApplicationModule implements NestModule {
+export class ApplicationModule {
   constructor(
     private readonly subscriptionsService: SubscriptionsService,
     private readonly graphQLFactory: GraphQLFactory,
   ) {}
-
+  /*
   configure(consumer: MiddlewareConsumer) {
     const schema = this.createSchema();
     this.subscriptionsService.createSubscriptionServer(schema);
@@ -37,7 +36,6 @@ export class ApplicationModule implements NestModule {
   }
 
   createSchema() {
-    const typeDefs = this.graphQLFactory.mergeTypesByPaths('./**/*.graphql');
     return this.graphQLFactory.createSchema({ typeDefs });
-  }
+}*/
 }
