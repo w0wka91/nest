@@ -6,6 +6,7 @@ const server_mqtt_1 = require("./server-mqtt");
 const server_nats_1 = require("./server-nats");
 const server_redis_1 = require("./server-redis");
 const server_tcp_1 = require("./server-tcp");
+const server_rqm_1 = require("./server-rqm");
 class ServerFactory {
     static create(options) {
         const { transport } = options;
@@ -18,6 +19,8 @@ class ServerFactory {
                 return new server_mqtt_1.ServerMqtt(options);
             case transport_enum_1.Transport.GRPC:
                 return new server_grpc_1.ServerGrpc(options);
+            case transport_enum_1.Transport.RMQ:
+                return new server_rqm_1.ServerRMQ(options);
             default:
                 return new server_tcp_1.ServerTCP(options);
         }

@@ -8,6 +8,6 @@ export declare class MiddlewareBuilder implements MiddlewareConsumer {
     constructor(routesMapper: RoutesMapper);
     apply(...middleware: Array<Type<any> | Function | any>): MiddlewareConfigProxy;
     build(): MiddlewareConfiguration<any>[];
-    private bindValuesToResolve(middleware, resolveParams);
+    private bindValuesToResolve;
     private static ConfigProxy;
 }

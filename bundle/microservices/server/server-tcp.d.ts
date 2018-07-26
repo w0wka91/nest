@@ -14,6 +14,6 @@ export declare class ServerTCP extends Server implements CustomTransportStrategy
     bindHandler(socket: any): void;
     handleMessage(socket: any, packet: ReadPacket & PacketId): Promise<any>;
     handleClose(): undefined | number | NodeJS.Timer;
-    private init();
-    private getSocketInstance(socket);
+    private init;
+    private getSocketInstance;
 }

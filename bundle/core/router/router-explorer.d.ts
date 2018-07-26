@@ -9,9 +9,9 @@ import { ApplicationConfig } from './../application-config';
 import { NestContainer } from '../injector/container';
 export declare class RouterExplorer {
     private readonly metadataScanner;
-    private readonly routerProxy;
-    private readonly exceptionsFilter;
-    private readonly config;
+    private readonly routerProxy?;
+    private readonly exceptionsFilter?;
+    private readonly config?;
     private readonly executionContextCreator;
     private readonly routerMethodFactory;
     private readonly logger;
@@ -22,8 +22,8 @@ export declare class RouterExplorer {
     scanForPaths(instance: Controller, prototype?: any): RoutePathProperties[];
     exploreMethodMetadata(instance: Controller, instancePrototype: any, methodName: string): RoutePathProperties;
     applyPathsToRouterProxy(router: any, routePaths: RoutePathProperties[], instance: Controller, module: string, basePath: string): void;
-    private applyCallbackToRouter(router, pathProperties, instance, module, basePath);
-    private createCallbackProxy(instance, callback, methodName, module, requestMethod);
+    private applyCallbackToRouter;
+    private createCallbackProxy;
 }
 export interface RoutePathProperties {
     path: string;

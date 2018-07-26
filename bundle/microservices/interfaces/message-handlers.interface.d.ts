@@ -1,4 +1,4 @@
 import { Observable } from 'rxjs';
 export interface MessageHandlers {
-    [pattern: string]: (data) => Promise<Observable<any>>;
+    [pattern: string]: (data: any) => Promise<Observable<any>>;
 }

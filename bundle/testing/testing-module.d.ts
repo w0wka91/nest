@@ -16,6 +16,6 @@ export declare class TestingModule extends NestApplicationContext {
     createNestApplication(httpServer?: HttpServer, options?: NestApplicationOptions): INestApplication & INestExpressApplication;
     createNestApplication(httpServer?: any, options?: NestApplicationOptions): INestApplication & INestExpressApplication;
     createNestMicroservice(options: NestMicroserviceOptions & MicroserviceOptions): INestMicroservice;
-    private applyExpressAdapter(httpAdapter);
-    private applyLogger(options);
+    private applyExpressAdapter;
+    private applyLogger;
 }

@@ -34,7 +34,7 @@ export declare class NestMicroservice extends NestApplicationContext implements 
     protected callInitHook(): Promise<any>;
     protected callModuleInitHook(module: Module): Promise<any>;
     protected hasOnModuleInitHook(instance: any): instance is OnModuleInit;
-    private callDestroyHook();
-    private callModuleDestroyHook(module);
-    private hasOnModuleDestroyHook(instance);
+    private callDestroyHook;
+    private callModuleDestroyHook;
+    private hasOnModuleDestroyHook;
 }

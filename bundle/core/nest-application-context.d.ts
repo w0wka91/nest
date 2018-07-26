@@ -19,6 +19,6 @@ export declare class NestApplicationContext implements INestApplicationContext {
     protected callInitHook(): Promise<any>;
     protected callModuleInitHook(module: Module): Promise<any>;
     protected hasOnModuleInitHook(instance: any): instance is OnModuleInit;
-    private findInstanceByPrototypeOrToken<TInput, TResult>(metatypeOrToken, contextModule);
-    private initFlattenModule();
+    private findInstanceByPrototypeOrToken;
+    private initFlattenModule;
 }

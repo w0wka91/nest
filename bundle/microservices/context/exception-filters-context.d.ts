@@ -8,6 +8,6 @@ import { RpcExceptionsHandler } from '../exceptions/rpc-exceptions-handler';
 export declare class ExceptionFiltersContext extends BaseExceptionFilterContext {
     private readonly config;
     constructor(container: NestContainer, config: ApplicationConfig);
-    create(instance: Controller, callback: (data) => Observable<any>, module: string): RpcExceptionsHandler;
+    create(instance: Controller, callback: (data: any) => Observable<any>, module: string): RpcExceptionsHandler;
     getGlobalMetadata<T extends any[]>(): T;
 }

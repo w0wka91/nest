@@ -11,8 +11,8 @@ export declare class WsAdapter implements WebSocketAdapter {
         namespace?: string;
         server?: any;
     }): any;
-    bindClientConnect(server: any, callback: (...args) => void): void;
-    bindClientDisconnect(client: any, callback: (...args) => void): void;
+    bindClientConnect(server: any, callback: (...args: any[]) => void): void;
+    bindClientDisconnect(client: any, callback: (...args: any[]) => void): void;
     bindMessageHandlers(client: any, handlers: MessageMappingProperties[], transform: (data: any) => Observable<any>): void;
     bindMessageHandler(buffer: any, handlers: MessageMappingProperties[], transform: (data: any) => Observable<any>): Observable<any>;
     close(server: any): void;

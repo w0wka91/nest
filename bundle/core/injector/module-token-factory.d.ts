@@ -5,5 +5,5 @@ export declare class ModuleTokenFactory {
     getDynamicMetadataToken(dynamicModuleMetadata: Partial<DynamicModule> | undefined): string;
     getModuleName(metatype: Type<any>): string;
     getScopeStack(scope: Type<any>[]): string[];
-    private reflectScope(metatype);
+    private reflectScope;
 }

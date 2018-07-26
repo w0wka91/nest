@@ -4,4 +4,5 @@ export declare enum Transport {
     NATS = 2,
     MQTT = 3,
     GRPC = 4,
+    RMQ = 5
 }

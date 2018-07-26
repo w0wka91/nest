@@ -5,5 +5,5 @@ export declare class MiddlewareResolver {
     private readonly instanceLoader;
     constructor(middlewareContainer: MiddlewareContainer);
     resolveInstances(module: Module, moduleName: string): Promise<void>;
-    private resolveMiddlewareInstance(wrapper, middleware, module);
+    private resolveMiddlewareInstance;
 }

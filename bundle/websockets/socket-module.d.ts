@@ -9,5 +9,5 @@ export declare class SocketModule {
     hookGatewaysIntoServers(components: Map<string, InstanceWrapper<Injectable>>, moduleName: string): void;
     hookGatewayIntoServer(wrapper: InstanceWrapper<Injectable>, moduleName: string): void;
     close(): Promise<any>;
-    private getContextCreator(container);
+    private getContextCreator;
 }

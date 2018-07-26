@@ -10,5 +10,5 @@ export declare class GatewayMetadataExplorer {
 }
 export interface MessageMappingProperties {
     message: any;
-    callback: (...args) => Observable<any> | Promise<any> | any;
+    callback: (...args: any[]) => Observable<any> | Promise<any> | any;
 }

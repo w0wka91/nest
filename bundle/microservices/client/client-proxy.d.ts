@@ -9,6 +9,6 @@ export declare abstract class ClientProxy {
     protected assignPacketId(packet: ReadPacket): ReadPacket & PacketId;
     protected connect$(instance: any, errorEvent?: string, connectEvent?: string): Observable<any>;
     protected getOptionsProp<T extends {
-        options?;
+        options?: any;
     }>(obj: ClientOptions, prop: keyof T['options'], defaultValue?: any): any;
 }

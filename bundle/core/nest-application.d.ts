@@ -61,11 +61,11 @@ export declare class NestApplication extends NestApplicationContext implements I
     useStaticAssets(path: string, options?: ServeStaticOptions): any;
     setBaseViewsDir(path: string): this;
     setViewEngine(engineOrOptions: any): this;
-    private loadPackage(name, ctx);
-    private registerMiddleware(instance);
-    private isExpress();
-    private listenToPromise(microservice);
-    private callDestroyHook();
-    private callModuleDestroyHook(module);
-    private hasOnModuleDestroyHook(instance);
+    private loadPackage;
+    private registerMiddleware;
+    private isExpress;
+    private listenToPromise;
+    private callDestroyHook;
+    private callModuleDestroyHook;
+    private hasOnModuleDestroyHook;
 }

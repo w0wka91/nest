@@ -10,7 +10,7 @@ export declare type CustomClass = CustomComponent & {
     useClass: Type<any>;
 };
 export declare type CustomFactory = CustomComponent & {
-    useFactory: (...args) => any;
+    useFactory: (...args: any[]) => any;
     inject?: OpaqueToken[];
 };
 export declare type CustomValue = CustomComponent & {

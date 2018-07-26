@@ -18,8 +18,8 @@ export declare class TestingModuleBuilder {
     overrideComponent(typeOrToken: any): OverrideBy;
     overrideProvider(typeOrToken: any): OverrideBy;
     compile(): Promise<TestingModule>;
-    private override(typeOrToken, isComponent);
-    private createOverrideByBuilder(add);
-    private createModule(metadata);
-    private applyLogger();
+    private override;
+    private createOverrideByBuilder;
+    private createModule;
+    private applyLogger;
 }

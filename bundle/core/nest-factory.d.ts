@@ -12,11 +12,9 @@ export declare class NestFactoryStatic {
      * Creates an instance of the NestApplication
      * @returns {Promise}
      */
-    create(module: any): Promise<INestApplication & INestExpressApplication>;
-    create(module: any, options: NestApplicationOptions): Promise<INestApplication & INestExpressApplication>;
+    create(module: any, options?: NestApplicationOptions): Promise<INestApplication & INestExpressApplication>;
     create(module: any, httpServer: FastifyAdapter, options?: NestApplicationOptions): Promise<INestApplication & INestFastifyApplication>;
-    create(module: any, httpServer: HttpServer, options?: NestApplicationOptions): Promise<INestApplication & INestExpressApplication>;
-    create(module: any, httpServer: any, options?: NestApplicationOptions): Promise<INestApplication & INestExpressApplication>;
+    create(module: any, httpServer: HttpServer | any, options?: NestApplicationOptions): Promise<INestApplication & INestExpressApplication>;
     /**
      * Creates an instance of the NestMicroservice
      *
@@ -33,11 +31,11 @@ export declare class NestFactoryStatic {
      * @returns {Promise}
      */
     createApplicationContext(module: any, options?: NestApplicationContextOptions): Promise<INestApplicationContext>;
-    private createNestInstance<T>(instance);
-    private initialize(module, container, config?, httpServer?);
-    private createProxy(target);
-    private createExceptionProxy();
-    private applyLogger(options);
-    private applyExpressAdapter(httpAdapter);
+    private createNestInstance;
+    private initialize;
+    private createProxy;
+    private createExceptionProxy;
+    private applyLogger;
+    private applyExpressAdapter;
 }
 export declare const NestFactory: NestFactoryStatic;

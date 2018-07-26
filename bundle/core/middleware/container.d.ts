@@ -7,8 +7,8 @@ export declare class MiddlewareContainer {
     getMiddleware(module: string): Map<string, MiddlewareWrapper>;
     getConfigs(): Map<string, Set<MiddlewareConfiguration>>;
     addConfig(configList: MiddlewareConfiguration[], module: string): void;
-    private getCurrentMiddleware(module);
-    private getCurrentConfig(module);
+    private getCurrentMiddleware;
+    private getCurrentConfig;
 }
 export interface MiddlewareWrapper {
     instance: NestMiddleware;

@@ -3,21 +3,21 @@ import { Transport } from '@nestjs/microservices';
 import { Test } from '@nestjs/testing';
 import * as express from 'express';
 import * as request from 'supertest';
-import { ApplicationModule } from '../src/app.module';
+import { RedisController } from '../src/redis/redis.controller';
 
-describe('RPC transport', () => {
+describe('RabbitMQ transport', () => {
   let server;
   let app: INestApplication;
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
-      imports: [ApplicationModule],
+      controllers: [RedisController],
     }).compile();
 
     server = express();
     app = module.createNestApplication(server);
     app.connectMicroservice({
-      transport: Transport.TCP,
+      transport: Transport.RMQ,
     });
     await app.startAllMicroservicesAsync();
     await app.init();
@@ -63,12 +63,6 @@ describe('RPC transport', () => {
       .post('/stream')
       .send([1, 2, 3, 4, 5])
       .expect(200, '15');
-  });
-
-  it(`/POST (pattern not found)`, () => {
-    return request(server)
-      .post('/?command=test')
-      .expect(500);
   });
 
   afterEach(async () => {

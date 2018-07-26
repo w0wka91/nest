@@ -13,7 +13,7 @@ export declare class ExternalContextCreator {
     private readonly interceptorsConsumer;
     private readonly modulesContainer;
     constructor(guardsContextCreator: GuardsContextCreator, guardsConsumer: GuardsConsumer, interceptorsContextCreator: InterceptorsContextCreator, interceptorsConsumer: InterceptorsConsumer, modulesContainer: ModulesContainer);
-    create(instance: Controller, callback: (...args) => any, methodName: string): (...args: any[]) => Promise<any>;
+    create(instance: Controller, callback: (...args: any[]) => any, methodName: string): (...args: any[]) => Promise<any>;
     findContextModuleName(constructor: Function): string;
     findComponentByClassName(module: Module, className: string): boolean;
 }

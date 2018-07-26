@@ -6,10 +6,10 @@ import { CanActivate } from '@nestjs/common';
 import { ConfigurationProvider } from '@nestjs/common/interfaces/configuration-provider.interface';
 export declare class GuardsContextCreator extends ContextCreator {
     private readonly container;
-    private readonly config;
+    private readonly config?;
     private moduleContext;
     constructor(container: NestContainer, config?: ConfigurationProvider);
-    create(instance: Controller, callback: (...args) => any, module: string): CanActivate[];
+    create(instance: Controller, callback: (...args: any[]) => any, module: string): CanActivate[];
     createConcreteContext<T extends any[], R extends any[]>(metadata: T): R;
     getGuardInstance(guard: Function | CanActivate): any;
     getInstanceByMetatype(guard: any): {

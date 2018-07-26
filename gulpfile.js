@@ -102,4 +102,5 @@ gulp.task('move', function() {
   directories.forEach((dir) => {
     stream = stream.pipe(gulp.dest(dir + '/node_modules/@nestjs'));
   });
+  return stream;
 });

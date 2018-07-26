@@ -7,4 +7,5 @@ var Transport;
     Transport[Transport["NATS"] = 2] = "NATS";
     Transport[Transport["MQTT"] = 3] = "MQTT";
     Transport[Transport["GRPC"] = 4] = "GRPC";
+    Transport[Transport["RMQ"] = 5] = "RMQ";
 })(Transport = exports.Transport || (exports.Transport = {}));

@@ -14,6 +14,6 @@ export declare class ClientMqtt extends ClientProxy {
     connect(): Promise<any>;
     createClient(): MqttClient;
     handleError(client: MqttClient): void;
-    createResponseCallback(packet: ReadPacket & PacketId, callback: (packet: WritePacket) => any): (channel: string, buffer) => any;
+    createResponseCallback(packet: ReadPacket & PacketId, callback: (packet: WritePacket) => any): (channel: string, buffer: any) => any;
     protected publish(partialPacket: ReadPacket, callback: (packet: WritePacket) => any): Function;
 }

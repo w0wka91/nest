@@ -11,9 +11,9 @@ export declare class IoAdapter implements WebSocketAdapter {
         server?: any;
     }): any;
     createIOServer(port: number, options?: any): any;
-    bindClientConnect(server: any, callback: (...args) => void): void;
-    bindClientDisconnect(client: any, callback: (...args) => void): void;
+    bindClientConnect(server: any, callback: (...args: any[]) => void): void;
+    bindClientDisconnect(client: any, callback: (...args: any[]) => void): void;
     bindMessageHandlers(client: any, handlers: MessageMappingProperties[], transform: (data: any) => Observable<any>): void;
-    bindMiddleware(server: any, middleware: (socket, next) => void): void;
+    bindMiddleware(server: any, middleware: (socket: any, next: any) => void): void;
     close(server: any): void;
 }

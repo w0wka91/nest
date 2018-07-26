@@ -5,6 +5,6 @@ import 'reflect-metadata';
 import { WsExceptionsHandler } from '../exceptions/ws-exceptions-handler';
 export declare class ExceptionFiltersContext extends BaseExceptionFilterContext {
     constructor(container: NestContainer);
-    create(instance: Controller, callback: (client, data) => any, module: string): WsExceptionsHandler;
+    create(instance: Controller, callback: (client: any, data: any) => any, module: string): WsExceptionsHandler;
     getGlobalMetadata<T extends any[]>(): T;
 }

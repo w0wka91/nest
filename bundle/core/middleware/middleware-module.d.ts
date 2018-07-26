@@ -16,6 +16,6 @@ export declare class MiddlewareModule {
     registerMiddleware(middlewareContainer: MiddlewareContainer, applicationRef: any): Promise<void>;
     registerMiddlewareConfig(middlewareContainer: MiddlewareContainer, config: MiddlewareConfiguration, module: string, applicationRef: any): Promise<void>;
     registerRouteMiddleware(middlewareContainer: MiddlewareContainer, routeInfo: RouteInfo, config: MiddlewareConfiguration, module: string, applicationRef: any): Promise<void>;
-    private bindHandler(instance, metatype, applicationRef, method, path);
-    private bindHandlerWithProxy(exceptionsHandler, router, middleware, path);
+    private bindHandler;
+    private bindHandlerWithProxy;
 }

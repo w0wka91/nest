@@ -9,14 +9,14 @@ export declare class ClientGrpcProxy extends ClientProxy implements ClientGrpc {
     private grpcClient;
     constructor(options: ClientOptions);
     getService<T extends {}>(name: string): T;
-    createServiceMethod(client: any, methodName: string): (...args) => Observable<any>;
-    createStreamServiceMethod(client: any, methodName: string): (...args) => Observable<any>;
-    createUnaryServiceMethod(client: any, methodName: string): (...args) => Observable<any>;
+    createServiceMethod(client: any, methodName: string): (...args: any[]) => Observable<any>;
+    createStreamServiceMethod(client: any, methodName: string): (...args: any[]) => Observable<any>;
+    createUnaryServiceMethod(client: any, methodName: string): (...args: any[]) => Observable<any>;
     createClient(): any;
     loadProto(): any;
     lookupPackage(root: any, packageName: string): any;
     close(): void;
     connect(): Promise<any>;
     send<TResult = any, TInput = any>(pattern: any, data: TInput): Observable<TResult>;
-    protected publish(partialPacket: any, callback: (packet) => any): void;
+    protected publish(partialPacket: any, callback: (packet: any) => any): void;
 }

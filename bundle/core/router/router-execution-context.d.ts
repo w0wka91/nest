@@ -16,7 +16,7 @@ export interface ParamProperties {
     type: RouteParamtypes | string;
     data: ParamData;
     pipes: PipeTransform[];
-    extractValue: (req, res, next) => any;
+    extractValue: (req: any, res: any, next: any) => any;
 }
 export declare class RouterExecutionContext {
     private readonly paramsFactory;
@@ -29,26 +29,26 @@ export declare class RouterExecutionContext {
     private readonly applicationRef;
     private readonly responseController;
     constructor(paramsFactory: IRouteParamsFactory, pipesContextCreator: PipesContextCreator, pipesConsumer: PipesConsumer, guardsContextCreator: GuardsContextCreator, guardsConsumer: GuardsConsumer, interceptorsContextCreator: InterceptorsContextCreator, interceptorsConsumer: InterceptorsConsumer, applicationRef: HttpServer);
-    create(instance: Controller, callback: (...args) => any, methodName: string, module: string, requestMethod: RequestMethod): (req: any, res: any, next: any) => Promise<void>;
+    create(instance: Controller, callback: (...args: any[]) => any, methodName: string, module: string, requestMethod: RequestMethod): (req: any, res: any, next: any) => Promise<void>;
     mapParamType(key: string): string;
     reflectCallbackMetadata(instance: Controller, methodName: string): RouteParamsMetadata;
     reflectCallbackParamtypes(instance: Controller, methodName: string): any[];
-    reflectHttpStatusCode(callback: (...args) => any): number;
+    reflectHttpStatusCode(callback: (...args: any[]) => any): number;
     reflectRenderTemplate(callback: any): string;
     reflectResponseHeaders(callback: any): CustomHeader[];
     getArgumentsLength(keys: string[], metadata: RouteParamsMetadata): number;
     createNullArray(length: number): any[];
     exchangeKeysForValues(keys: string[], metadata: RouteParamsMetadata, moduleContext: string): ParamProperties[];
-    getCustomFactory(factory: (...args) => void, data: any): (...args) => any;
+    getCustomFactory(factory: (...args: any[]) => void, data: any): (...args: any[]) => any;
     mergeParamsMetatypes(paramsProperties: ParamProperties[], paramtypes: any[]): (ParamProperties & {
         metatype?: any;
     })[];
-    getParamValue<T>(value: T, {metatype, type, data}: {
+    getParamValue<T>(value: T, { metatype, type, data }: {
         metatype: any;
         type: any;
         data: any;
     }, transforms: Transform<any>[]): Promise<any>;
-    createGuardsFn(guards: any[], instance: Controller, callback: (...args) => any): (args: any[]) => Promise<void>;
+    createGuardsFn(guards: any[], instance: Controller, callback: (...args: any[]) => any): (args: any[]) => Promise<void>;
     createPipesFn(pipes: any[], paramsOptions: (ParamProperties & {
         metatype?: any;
     })[]): (args: any, req: any, res: any, next: any) => Promise<void>;

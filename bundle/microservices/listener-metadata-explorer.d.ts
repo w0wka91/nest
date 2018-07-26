@@ -15,5 +15,5 @@ export interface ClientProperties {
 }
 export interface PatternProperties {
     pattern: PatternMetadata;
-    targetCallback: (...args) => any;
+    targetCallback: (...args: any[]) => any;
 }

@@ -1,10 +1,9 @@
+import { INestApplication } from '@nestjs/common';
+import { Transport } from '@nestjs/microservices';
+import { Test } from '@nestjs/testing';
 import * as express from 'express';
 import * as request from 'supertest';
-import { Test } from '@nestjs/testing';
-import { INestApplication } from '@nestjs/common';
-import { join } from 'path';
 import { DisconnectedClientController } from '../src/disconnected.controller';
-import { Transport } from '@nestjs/microservices';
 
 describe('Disconnected client', () => {
   let server;
@@ -46,6 +45,18 @@ describe('Disconnected client', () => {
       .post('/')
       .send({
         transport: Transport.NATS,
+        options: {
+          url: 'nats://localhost:4224',
+        },
+      })
+      .expect(408);
+  });
+
+  it(`RabbitMQ`, () => {
+    return request(server)
+      .post('/')
+      .send({
+        transport: Transport.RMQ,
         options: {
           url: 'nats://localhost:4224',
         },

@@ -6,6 +6,7 @@ const transport_enum_1 = require("../enums/transport.enum");
 const client_nats_1 = require("./client-nats");
 const client_mqtt_1 = require("./client-mqtt");
 const client_grpc_1 = require("./client-grpc");
+const client_rmq_1 = require("./client-rmq");
 class ClientProxyFactory {
     static create(options) {
         const { transport } = options;
@@ -18,6 +19,8 @@ class ClientProxyFactory {
                 return new client_mqtt_1.ClientMqtt(options);
             case transport_enum_1.Transport.GRPC:
                 return new client_grpc_1.ClientGrpcProxy(options);
+            case transport_enum_1.Transport.RMQ:
+                return new client_rmq_1.ClientRMQ(options);
             default:
                 return new client_tcp_1.ClientTCP(options);
         }
