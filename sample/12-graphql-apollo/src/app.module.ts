@@ -7,6 +7,7 @@ import { CatsModule } from './cats/cats.module';
     CatsModule,
     GraphQLModule.forRoot({
       typePaths: ['./**/*.graphql'],
+      // context: ({req}) => ({...req}),
     }),
   ],
 })
